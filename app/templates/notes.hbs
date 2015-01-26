@@ -1,10 +1,17 @@
 {{outlet}}
-{{textarea placeholder="Add a note!" value=noteCopy}}
-{{textarea placeholder="Add a title" value=noteTitle}}
-<button {{action 'newNote'}}>Save Note</button>
-
-
-{{#each note in model}}
-{{note.body}}
-{{note.title}}
-{{/each}}
+<section class="container">
+  <section class="note-preview">
+    {{textarea placeholder="Add a title!" value=noteTitle}}
+    {{textarea placeholder="Add a note!" value=noteCopy}}
+    <button class="myButton" {{action 'newNote'}}>Save</button>
+<hr>
+      {{#each note in model}}
+    <section class="note">
+      <section class="note-title">
+      <strong>{{note.title}}</strong>
+      </section>
+      {{note.body}}
+      {{/each}}
+    </section>
+  </section>
+</section>
