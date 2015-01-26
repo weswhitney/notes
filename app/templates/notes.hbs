@@ -1,0 +1,10 @@
+{{outlet}}
+{{textarea placeholder="Add a note!" value=noteCopy}}
+{{textarea placeholder="Add a title" value=noteTitle}}
+<button {{action 'newNote'}}>Save Note</button>
+
+
+{{#each note in model}}
+{{note.body}}
+{{note.title}}
+{{/each}}
