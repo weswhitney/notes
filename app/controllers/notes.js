@@ -1,5 +1,4 @@
 import Ember from "ember";
-import EmberValidations from 'ember-validations';
 
 export default Ember.ArrayController.extend({
   actions: {
@@ -7,18 +6,26 @@ export default Ember.ArrayController.extend({
       var body = this.get('noteCopy');
       var title = this.get('noteTitle');
 
-      if (!body) {
-        return;
+      if (title !== undefined) {
+        if (body !== undefined) {
+          if (title.trim() !== '') {
+            if (body.trim() !== '') {
+              var note = this.store.createRecord('note', {title: title, body: body});
+              note.save();
+              this.set('noteTitle', '');
+              this.set('noteCopy', '');
+            }
+          }
+        }
       }
+    },
 
-      // typeof
-      // false, undefined, !
-      // else
-
-      var note = this.store.createRecord('note', { body: body, title: title });
-      this.set('noteCopy', '');
-      this.set('noteTitle', '');
-      note.save();
+    deleteNote: function (id) {
+      this.store.find('note', id).then(function(note) {
+        note.deleteRecord();
+        note.save();
+      });
     }
+
   }
 });

@@ -4,11 +4,12 @@
     {{textarea placeholder="Add a title!" value=noteTitle}}
     {{textarea placeholder="Add a note!" value=noteCopy}}
     <button class="myButton" {{action 'newNote'}}>Save</button>
-<hr>
-      {{#each note in model}}
+    <hr>
+    {{#each note in model}}
     <section class="note">
       <section class="note-title">
-      <strong>{{note.title}}</strong>
+        <strong>{{note.title}}</strong>
+        <button class="myButton" {{action 'deleteNote' note.id}}>Delete</button>
       </section>
       {{note.body}}
       {{/each}}
