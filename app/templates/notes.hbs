@@ -1,4 +1,9 @@
 {{outlet}}
+
+<div class="flash-message">
+  <h2>{{message-queue}}</h2>
+</div>
+
 <section class="container">
   <section class="note-preview">
     {{textarea placeholder="Add a title!" value=noteTitle}}
@@ -16,3 +21,7 @@
     </section>
   </section>
 </section>
+
+<hr>
+
+ <!-- {{#each note in model}} -->
