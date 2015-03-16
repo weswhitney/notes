@@ -12,16 +12,6 @@ module.exports = function(environment) {
         // e.g. 'with-controller': true
       }
     },
-    
-    ontentSecurityPolicy: {
-      'default-src': "'none'",
-      'script-src': "'self'",
-      'font-src': "'self'",
-      'connect-src': "'self' localhost:3000",
-      'img-src': "'self'",
-      'style-src': "'self'",
-      'media-src': "'self'"
-    },
 
     APP: {
       // Here you can pass flags/options to your application instance
@@ -31,10 +21,10 @@ module.exports = function(environment) {
 
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
-    ENV.APP.LOG_ACTIVE_GENERATION = true;
+    // ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
-    ENV.APP.LOG_VIEW_LOOKUPS = true;
+    // ENV.APP.LOG_VIEW_LOOKUPS = true;
   }
 
   if (environment === 'test') {
